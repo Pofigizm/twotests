@@ -46,6 +46,7 @@ angular.module('audioDrct', [])
 
         $rootScope.$on('audio.set', function(e, file){
           $scope.audio.src = file;
+          $scope.audio.preload = 'auto';
         });
       },
 
