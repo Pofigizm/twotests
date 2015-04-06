@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="">
+  <head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>asyncForeach</title>
+
+  <link rel="stylesheet" href="styles/bootstrap.css" />
+  <link rel="stylesheet" href="styles/qunit.css">
+
+  </head>
+  <body>
+
+  <div class="container">
+    <div class="header">
+      <h3 class="text-muted">asyncForeach</h3>
+    </div>
+
+    <pre>
+ 
+  // решение с промисом (нужен полифил для IE)
+  function asyncForeachPromise( array, fn, cb ){
+    if (typeof(fn) !== 'function') throw 'fn is not a function';
+    if (typeof(cb) !== 'function') throw 'cb is not a function';
+    [].reduce.call( array, function(res, el, ix){
+      return res.then( function(){
+        return new Promise( function(resolve) {
+          fn(el, ix, resolve);
+        });
+      });
+    }, Promise.resolve()).then(cb);
+  }
+
+  // решение с рекурсией
+  function asyncForeach( array, fn, cb ){
+    if (typeof(fn) !== 'function') throw 'fn is not a function';
+    if (typeof(cb) !== 'function') throw 'cb is not a function';
+    var index = 0;
+    (function doit( arr ){
+      if (arr.length === 0) return cb();
+      fn(arr[0], index++, function(){
+        doit( [].slice.call( arr, 1 ) );
+      });
+    })( array );
+  }
+    </pre>
+
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    
+  </div>
+
+  <script src="scripts/qunit.js"></script>
+  <script src="scripts/async.js"></script>
+
+</body>
+</html>

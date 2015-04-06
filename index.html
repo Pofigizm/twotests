@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test work</title>
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="styles/bootstrap.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <h3 class="text-muted">Test work for one company</h3>
+      </div>
+      <div>
+<pre>
+<b>1. Реализовать функцию asyncForeach и написать для неё юнит-тесты с использованием qunit:</b>
+asyncForeach([1, 2, 3], function(item, index, done) {
+  setTimeout(function() {
+    console.log(item);
+    done();
+  }, 1000);
+}, function() {
+  console.log('end');
+});
+
+Вывод в консоль:
+> 1
+> 2
+> 3
+> "end"
+<h4><b>Решение: <a href='async.html'>asyncForeach</a></b></h4></pre>
+
+<pre>
+<b>2. С использованием EmberJS или AngularJS сделать реализацию музыкального плеера.</b>
+Обязательно:
+  - Кнопка play/pause
+  - Кнопка mute/unmute
+  - Длина композиции и текущая позиция
+  - Ползунок проигрывания с использованием &lt;input type="range"&gt;
+НЕ нужно делать:
+  - список треков
+  - несколько плееров на странице одновременно
+НЕ нужно использовать:
+  - jQuery
+Желательно:
+  - простой дизайн
+  - нейтральная композиция
+<h4><b>Решение: <a href='audio.html'>Angular audio</a></b></h4></pre>
+
+    </div>
+  </div>
+
+</body>
+</html>

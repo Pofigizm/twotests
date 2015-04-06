@@ -1,0 +1,28 @@
+
+<div class="form-inline">
+  <div class="form-group">
+    <button class="btn btn-default playpause" ng-click="controls.paused=!controls.paused" ng-class="{paused:controls.paused}">
+      <span class="play-text"><i class="glyphicon glyphicon-play"></i></span>
+      <span class="pause-text"><i class="glyphicon glyphicon-pause"></i></span>
+    </button>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-default mute" ng-click="controls.muted=!controls.muted" ng-class="{muted:controls.muted}">
+      <span class="mute-text"><i class="glyphicon glyphicon-volume-up"></i></span>
+      <span class="unmute-text"><i class="glyphicon glyphicon-volume-off"></i></span>
+    </button>
+  </div>
+
+  <div class="form-group">
+    <span class="time">{{controls.time(controls.currentTime)}}</span>
+  </div>
+
+  <div class="form-group">
+    <input min="0" max="{{controls.duration}}" step="0.01" type="range" ng-model="controls.currentTime" />
+  </div>
+
+  <div class="form-group">
+    <span class="time">{{controls.time(controls.duration)}}</span>
+  </div>
+</div>

@@ -1,0 +1,150 @@
+
+angular-audio .form-inline {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  border-radius: 5px;
+  padding: 5px;
+  color: #888;
+}
+
+angular-audio .form-group {
+  margin: 0 2px;
+}
+
+angular-audio .btn {
+  border: none;
+  padding: 5px 10px;
+  color: #999;
+}
+
+angular-audio .btn:hover,
+angular-audio .btn:focus {
+  outline: none;
+  background-color: #fff;
+}
+
+angular-audio .time {
+  margin: 0 10px;
+}
+
+angular-audio .paused .play-text,
+angular-audio .pause-text,
+angular-audio .muted .unmute-text,
+angular-audio .mute-text {
+    display:inline-block;
+}
+
+angular-audio .play-text,
+angular-audio .paused .pause-text,
+angular-audio .unmute-text,
+angular-audio .muted .mute-text {
+    display:none;
+}
+
+
+/*  http://brennaobrien.com/blog/2014/05/style-input-type-range-in-every-browser.html  */
+
+angular-audio input[type=range] {
+    /*removes default webkit styles*/
+    -webkit-appearance: none;
+    
+    /*fix for FF unable to apply focus style bug */
+    border: 1px solid white;
+    
+    /*required for proper track sizing in FF*/
+    width: 300px;
+}
+angular-audio input[type=range]::-webkit-slider-runnable-track {
+    width: 300px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+angular-audio input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid #aaa;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #fff;
+    margin-top: -5px;
+}
+angular-audio input[type=range]::-webkit-slider-thumb:hover {
+    border: 1px solid #333;
+    cursor: pointer; 
+}
+
+angular-audio input[type=range]:focus {
+    outline: none;
+}
+angular-audio input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+}
+
+angular-audio input[type=range]::-moz-range-track {
+    width: 300px;
+    height: 5px;
+    background: #ddd;
+    border: none;
+    border-radius: 3px;
+}
+angular-audio input[type=range]::-moz-range-thumb {
+    border: 1px solid #aaa;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #fff;
+}
+angular-audio input[type=range]::-moz-range-thumb:hover {
+    border: 1px solid #333;
+    cursor: pointer; 
+}
+
+/*hide the outline behind the border*/
+angular-audio input[type=range]:-moz-focusring{
+    outline: 1px solid white;
+    outline-offset: -1px;
+}
+
+angular-audio input[type=range]::-ms-track {
+    width: 300px;
+    height: 5px;
+    
+    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+    background: transparent;
+    
+    /*leave room for the larger thumb to overflow with a transparent border */
+    border-color: transparent;
+    border-width: 6px 0;
+
+    /*remove default tick marks*/
+    color: transparent;
+}
+angular-audio input[type=range]::-ms-fill-lower {
+    background: #777;
+    border-radius: 10px;
+}
+angular-audio input[type=range]::-ms-fill-upper {
+    background: #ddd;
+    border-radius: 10px;
+}
+angular-audio input[type=range]::-ms-thumb {
+    border: 1px solid #aaa;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #fff;
+}
+angular-audio input[type=range]::-ms-thumb:hover {
+    border: 1px solid #333;
+    cursor: pointer; 
+}
+
+angular-audio input[type=range]:focus::-ms-fill-lower {
+    background: #888;
+}
+angular-audio input[type=range]:focus::-ms-fill-upper {
+    background: #ccc;
+}
