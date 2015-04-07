@@ -7,8 +7,9 @@ angular.module('audioDrct', [])
       restrict: 'E',
       scope: {},
       controller: function( $scope ){
-        
+
         $scope.audio = new Audio();
+        $scope.getupdate = false;
         $scope.controls = {
           paused: true,
           muted: false,
@@ -18,6 +19,7 @@ angular.module('audioDrct', [])
             this.paused ? $scope.audio.pause() : $scope.audio.play();
             $scope.audio.muted = this.muted;
             $scope.audio.currentTime = this.currentTime;  
+            console.log('set :', this);
           },
           get: function(){
             this.paused = $scope.audio.paused;
@@ -25,6 +27,7 @@ angular.module('audioDrct', [])
             this.duration = $scope.audio.duration;
             this.currentTime = $scope.audio.currentTime;
             $scope.$apply();
+            console.log('get :', this);
           },
           time: function(sec){
             sec = sec ? sec : 0;
@@ -36,12 +39,14 @@ angular.module('audioDrct', [])
 
         ['loadeddata','timeupdate','ended'].forEach(function(event){
           $scope.audio.addEventListener(event, function(){
+            $scope.getupdate = true;
             $scope.controls.get();
-          });  
+            $scope.getupdate = false;
+          });
         });
-        
-        $scope.$watch('controls', function(newVal, oldVal){
-          $scope.controls.set();
+
+        $scope.$watch('controls', function(){
+          if ( !$scope.getupdate ) $scope.controls.set();
         }, true);
 
         $rootScope.$on('audio.set', function(e, file){
