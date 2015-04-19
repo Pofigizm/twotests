@@ -1,4 +1,4 @@
-/* jshint devel:true */
+/*global angular */
 'use strict';
 
 angular.module('app', ['audioDrct'])

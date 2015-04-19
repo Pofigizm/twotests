@@ -1,4 +1,4 @@
-/* jshint devel:true */
+/*global QUnit */
 'use strict';
 
 // решение с промисом (нужен полифил для IE)
@@ -64,7 +64,7 @@ QUnit.test('main test', function(assert) {
 QUnit.test('test blank array', function(assert) {
 
   var endtest = assert.async();
-  asyncForeach([], function(item, index, done) {
+  asyncForeach([], function() {
     assert.ok(false, 'test resumed from element of blank array');
   }, function() {
     assert.ok(true, 'test resumed from end of blank array');
@@ -108,7 +108,7 @@ QUnit.test('main test', function(assert) {
 QUnit.test('test blank array', function(assert) {
 
   var endtest = assert.async();
-  asyncForeachPromise([], function(item, index, done) {
+  asyncForeachPromise([], function() {
     assert.ok(false, 'test resumed from element of blank array');
   }, function() {
     assert.ok(true, 'test resumed from end of blank array');
